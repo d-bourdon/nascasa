@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
+var async = require("async");
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -26,11 +27,32 @@ var files = mongoose.Schema({
 	type : String 
 });
 var Lfile = mongoose.model("Lfile", files);
-// fs.readdir(".", function(err, files) {
-// 	var f = new Lfile({nom : files, path : "test/test", type : "test"});
-// 	f.save();
-// });
+var dchemin = "/Users/dbourdon/"
 
+function log_file(chemin){
+  fs.readdir(chemin ,
+    function(err, files){
+      if (err)
+        console.log("Une erreur est survenue :" + err);
+      else
+      {
+        async.each(files, function(elem, callback){
+          fs.stat(path.join(chemin, elem), function(err, stat){
+            var f = new Lfile({nom : elem, path : path.join(chemin, elem), type : stat.isDirectory()});
+            f.save();
+            console.log("add");
+            if (stat.isDirectory())
+              log_file(path.join(chemin, elem));
+          });
+          callback(false);
+        });
+      }
+    },
+    function(err){
+      if (err)
+        console.log("ereur :" + err)
+    });
+}
 // var f = new Lfile({nom : "Test", path : "test/test", type : "test"});
 // f.save(function(){
  	Lfile.find(function (err, clients) {
@@ -70,5 +92,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+log_file(dchemin);
 
 module.exports = app;
