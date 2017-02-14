@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
 var async = require("async");
+var error_log = require("./error")
+var log_file = require("./log_file")
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -29,36 +31,13 @@ var files = mongoose.Schema({
 var Lfile = mongoose.model("Lfile", files);
 var dchemin = "/Users/dbourdon/"
 
-function log_file(chemin){
-  fs.readdir(chemin ,
-    function(err, files){
-      if (err)
-        console.log("Une erreur est survenue :" + err);
-      else
-      {
-        async.each(files, function(elem, callback){
-          fs.stat(path.join(chemin, elem), function(err, stat){
-            var f = new Lfile({nom : elem, path : path.join(chemin, elem), type : stat.isDirectory()});
-            f.save();
-            console.log("add");
-            if (stat.isDirectory())
-              log_file(path.join(chemin, elem));
-          });
-          callback(false);
-        });
-      }
-    },
-    function(err){
-      if (err)
-        console.log("ereur :" + err)
-    });
-}
 // var f = new Lfile({nom : "Test", path : "test/test", type : "test"});
 // f.save(function(){
- 	Lfile.find(function (err, clients) {
- 		console.log(clients);
- 	});
+ 	// Lfile.find(function (err, clients) {
+ 	// 	console.log(clients);
+ 	// });
 // });
+log_file("./dsadsadsadsa/dsa");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

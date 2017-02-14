@@ -1,0 +1,4 @@
+[14-02-2017][18-03-52] Warning =>>log_file : readdir>1Error: ENOENT: no such file or directory, scandir 'dsahduisadnjsandjnsajdiasdas'
+[14-02-2017][18-03-59] Warning =>>log_file : readdir>1Error: ENOENT: no such file or directory, scandir 'dsahduisadnjsandjnsajdiasdas'
+[14-02-2017][18-04-00] Warning =>>log_file : readdir>1Error: ENOENT: no such file or directory, scandir 'dsahduisadnjsandjnsajdiasdas'
+[14-02-2017][18-07-53] Danger =>>log_file : readdir>1Error: ENOENT: no such file or directory, scandir 'dsahduisadnjsandjnsajdiasdas'
