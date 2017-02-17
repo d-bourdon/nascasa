@@ -9,6 +9,7 @@ var fs = require('fs');
 var async = require("async");
 var error_log = require("./error")
 var log_file = require("./log_file")
+var debug = require("./debug");
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -16,6 +17,7 @@ var users = require('./routes/users');
 var db = mongoose.connect("mongodb://localhost/mydb");
 mongoose.connection.on("error", function() {
 	console.log("Erreur de connection");
+  debug.mongo_start();
 });
 mongoose.connection.on("open", function() {
 	console.log("Ouverture de connection");
@@ -23,21 +25,13 @@ mongoose.connection.on("open", function() {
 
 var app = express();
 
-var files = mongoose.Schema({
-	nom : String,
-	path : String,
-	type : String 
-});
-var Lfile = mongoose.model("Lfile", files);
-var dchemin = "/Users/dbourdon/"
-
-// var f = new Lfile({nom : "Test", path : "test/test", type : "test"});
-// f.save(function(){
- 	// Lfile.find(function (err, clients) {
- 	// 	console.log(clients);
- 	// });
+// var files = mongoose.Schema({
+// 	nom : String,
+// 	path : String,
+// 	type : String 
 // });
-log_file("./dsadsadsadsa/dsa");
+// var Lfile = mongoose.model("Lfile", files);
+var dchemin = "/Users/dbourdon/"
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -71,7 +65,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-log_file(dchemin);
 
 module.exports = app;

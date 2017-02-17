@@ -6,7 +6,7 @@ var error_log = require("./error")
 var dateFormat = require('dateformat');
 var now = new Date();
 
-var db = mongoose.connect("mongodb://localhost/mydb");
+//var db = mongoose.connect("mongodb://localhost/mydb");
 var Shemfiles = mongoose.Schema({
 	nom : String,
 	path : String,
@@ -87,6 +87,5 @@ function log_img(chemin){
 		});
 }
 
-log_img("/Users/dbourdon/Desktop/");
-
 exports.log_file = log_file;
+exports.log_img = log_img;
