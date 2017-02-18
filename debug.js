@@ -4,6 +4,11 @@
 ** - mongod non lancé / crashé
 */
 
+/*
+** Mode Débug pour plus d'info sur les outputs. 0 = OFF | 1 = ON
+*/
+DEBUG = 0;
+
 var error_log = require("./error");
 var config = require("./config").config;
 var spawn = require('child_process').spawn;
@@ -11,7 +16,8 @@ var spawn = require('child_process').spawn;
 function  mongo_start() {
 	bat = spawn('mongod', ['--dbpath', config.dbpath,]);
 	bat.stdout.on('data', (data) => {
-		error_log.error_log("Warning", `DEGUG : mongo_start> ${data}`);
+		if (DEBUG == 1)
+			error_log.error_log("Warning", `DEGUG : mongo_start> ${data}`);
 	});
 	bat.stderr.on('data', (data) => {
 		error_log.error_log("Warning", `DEGUG : mongo_start> ${data}`);
@@ -24,8 +30,8 @@ function  mongo_start() {
 		}
 		else
 			error_log.error_log("Danger", `DEGUG : mongo_start> ${code}`);
-		//Do stuff before close app server-client
 	});
+	console.log("Serveur de retour !");
 }
 
 exports.mongo_start = mongo_start;

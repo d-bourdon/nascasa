@@ -16,7 +16,7 @@ var users = require('./routes/users');
 
 var db = mongoose.connect("mongodb://localhost/mydb");
 mongoose.connection.on("error", function() {
-	console.log("Erreur de connection");
+	console.log("Erreur de connection - Base de donée en cours de redémarage ... ");
   debug.mongo_start();
 });
 mongoose.connection.on("open", function() {
@@ -25,12 +25,6 @@ mongoose.connection.on("open", function() {
 
 var app = express();
 
-// var files = mongoose.Schema({
-// 	nom : String,
-// 	path : String,
-// 	type : String 
-// });
-// var Lfile = mongoose.model("Lfile", files);
 var dchemin = "/Users/dbourdon/"
 
 // view engine setup
