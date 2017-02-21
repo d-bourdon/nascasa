@@ -24,10 +24,7 @@ function  mongo_start() {
 	});
 	bat.on('close', (code) => {
 		if (code == 0)
-		{
 			error_log.error_log("INFO", `DEGUG : mongo_start>UP ${code}`);
-			console.log("Serveur on");
-		}
 		else
 			error_log.error_log("Danger", `DEGUG : mongo_start> ${code}`);
 	});
