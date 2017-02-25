@@ -1,7 +1,7 @@
 {
   "name": "Nascasa",
   "version": "1.0.0",
-  "main": "start.js",
+  "main": "main.js",
   "repository": "https://github.com/d-bourdon/nascasa/tree/master/Client",
   "author": "dbourdon",
   "license": "MIT",
