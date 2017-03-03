@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 18:42:28 by dbourdon          #+#    #+#             */
-/*   Updated: 2017/02/25 18:53:58 by dbourdon         ###   ########.fr       */
+/*   Updated: 2017/03/03 17:33:44 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ app.on('ready', () => {
       loading.hide()
       loading.close()
     })
-    // long loading html
     main.loadURL('file://'+ __dirname +'/public/index.html')
   })
   loading.loadURL('file://'+ __dirname +'/public/load.png')

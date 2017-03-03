@@ -6,13 +6,13 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 18:53:30 by dbourdon          #+#    #+#             */
-/*   Updated: 2017/02/25 19:11:37 by dbourdon         ###   ########.fr       */
+/*   Updated: 2017/03/03 17:25:26 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 var eventemit = require('events');
 
 
-function event() {
-	
+function start() {
+	io.connect
 }
