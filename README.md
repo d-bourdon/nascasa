@@ -2,8 +2,7 @@
 
 2 logiciels, `Server` pour le nas, `Client`pour chaque pc
 
--> Serveur en prio, remodelage à venir
-
+-> v0.0.0 clos. master devient Server, Client viendra sur une autre branche
 
 ### direction
 
