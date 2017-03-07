@@ -5,26 +5,13 @@ var mongoose = require('mongoose');
 var error_log = require("./error")
 var dateFormat = require('dateformat');
 var now = new Date();
+var shem = require('./model_mongo')
 
-//var db = mongoose.connect("mongodb://localhost/mydb");
-var Shemfiles = mongoose.Schema({
-	nom : String,
-	path : String,
-	dir : String
-});
-var Shemimg = mongoose.Schema({
-	nom : String,
-	path : String,
-	type : String,
-	date_m : String, 
-	date_c : String, 
-	date_a : String 
-});
-
-var Lfile = mongoose.model("Lfile", Shemfiles);
-var Limg = mongoose.model("Limg", Shemimg);
+var Lfile = mongoose.model("Lfile", shem.Shemfiles);
+var Limg = mongoose.model("Limg", shem.Shemimg);
 
 function log_file(chemin){
+	console.log(chemin);
 	fs.readdir(chemin,
 		function(err, files){
 			if (err)

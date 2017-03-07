@@ -12,10 +12,12 @@ DEBUG = 0;
 var error_log = require("./error");
 var config = require("./config").config;
 var spawn = require('child_process').spawn;
+var log_file = require('./log_file');
 
 function  mongo_start() {
 	bat = spawn('mongod', ['--dbpath', config.dbpath,]);
 	bat.stdout.on('data', (data) => {
+		log_file.log_file('./');
 		if (DEBUG == 1)
 			error_log.error_log("Warning", `DEGUG : mongo_start> ${data}`);
 	});

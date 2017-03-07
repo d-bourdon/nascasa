@@ -4,12 +4,39 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var fs = require('fs');
+var async = require("async");
 
+/*
+** Script maison
+*/
+var error_log = require("./error")
+var log_file = require("./log_file")
+var debug = require("./debug");
+var config = require("./config").config;
+
+/*
+** Include des routes
+*/
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
+/*
+** Connection base de donnée mongo avec debug
+*/
+var db = mongoose.connect(config['link_db']);
+mongoose.connection.on("error", function() {
+	console.log("Erreur de connection - Base de donnée en cours de redémarage ... ");
+  debug.mongo_start();
+});
+mongoose.connection.on("open", function() {
+	console.log("Ouverture de connection");
+	//log_file.log_file('./');
+});
+//log_file.log_file('./');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -22,6 +49,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*
+** Définition des routes
+*/
 app.use('/', index);
 app.use('/users', users);
 
