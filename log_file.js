@@ -11,7 +11,7 @@ var Lfile = mongoose.model("Lfile", shem.Shemfiles);
 var Limg = mongoose.model("Limg", shem.Shemimg);
 
 function log_file(chemin){
-	console.log(chemin);
+	console.log("chemin = "+ chemin);
 	fs.readdir(chemin,
 		function(err, files){
 			if (err)

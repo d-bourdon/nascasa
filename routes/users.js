@@ -17,14 +17,15 @@ var shem = require('../model_mongo');
 // 	date_a : String 
 // });
 
-var Lfile = mongoose.model("Lfile", shem.Shemfiles);
-//var Limg = mongoose.model("Limg", Shemimg);
+//var Lfile = mongoose.model("Lfile", shem.Shemfiles);
+var Limg = mongoose.model("Limg", shem.Shemimg);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 	console.log('OK COOL1');
-	Lfile.find({}, function (err, clients)
+	Limg.find({}, function (err, clients)
 		{
+			if (err) throw err;
 			console.log(clients);
 			console.log('OK COOL');
 		});

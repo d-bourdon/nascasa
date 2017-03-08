@@ -30,13 +30,14 @@ var app = express();
 var db = mongoose.connect(config['link_db']);
 mongoose.connection.on("error", function() {
 	console.log("Erreur de connection - Base de donnée en cours de redémarage ... ");
-  debug.mongo_start();
+  debug.mongo_start(function()
+  	{
+  		console.log("hello world");
+  	});
 });
 mongoose.connection.on("open", function() {
 	console.log("Ouverture de connection");
-	//log_file.log_file('./');
 });
-//log_file.log_file('./');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

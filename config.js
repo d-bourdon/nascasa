@@ -6,7 +6,7 @@ config = {
 	debug:		1,
 	port:		"4242",
 	ip:			"192.168.0.15",
-	link_db:	"mongodb://localhost/nascasa",
+	link_db:	"mongodb://localhost:27017/mydb",
 	dbpath:		"/Users/dbourdon/mongodb",
 	logpath:	"./log.txt",
 	other:		"none",
