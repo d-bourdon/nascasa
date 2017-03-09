@@ -15,6 +15,7 @@ var Shemfiles = mongoose.Schema({
 var Shemimg = mongoose.Schema({
 	nom : String,
 	path : String,
+	patha : String,
 	type : String,
 	date_m : String,
 	date_c : String,

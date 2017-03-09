@@ -1,9 +1,6 @@
 # nascasa
 
-2 logiciels, `Server` pour le nas, `Client`pour chaque pc
-
--> Serveur en prio, remodelage à venir
-
+un seul logiciel pour le moment, serveur avec acces par navigateur
 
 ### direction
 
@@ -17,8 +14,16 @@
 
 ## Server side
 
-* rebase le projet sur express
-* coeur de la recherche d'image
+* coeur de la recherche d'image 
+
+	+> ajuster par rapport a public ? ou path relatif (ex `../../mesphotos`)
+
+	-> Boucle sur variable config contenant les paths autorisé
+
+	-> Route sur recherche pour lancer la recherche.
+
+	-> Vérification des doublons a voir si prend pas trops de ressources
+
 * panneau de config
 * ajout gestion d'utilisateur ? (secu des photos / en vue de l'app client side)
 
