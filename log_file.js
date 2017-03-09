@@ -56,7 +56,7 @@ function log_img(chemin){
 								ext = path.extname(elem)
 								if (ext == ".jpg" || ext == ".png" || ext == ".gif")
 								{
-									f = new Limg({nom : elem, path : path.join(chemin, elem), type : ext, date_m : dateFormat(stat.mtime, "dd-mm-yyyy HH:MM:ss"), date_c : dateFormat(stat.ctime, "dd-mm-yyyy HH:MM:ss"), date_a : dateFormat(now, "dd-mm-yyyy HH:MM:ss")});
+									f = new Limg({nom : elem, path : elem, type : ext, date_m : dateFormat(stat.mtime, "dd-mm-yyyy HH:MM:ss"), date_c : dateFormat(stat.ctime, "dd-mm-yyyy HH:MM:ss"), date_a : dateFormat(now, "dd-mm-yyyy HH:MM:ss")});
 									f.save();
 								}
 							}

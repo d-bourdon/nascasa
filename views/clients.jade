@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  p Welcome to test
+  ul
+    each client in clients
+      li
+        img(src= client.path)

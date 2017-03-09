@@ -23,13 +23,12 @@ var Limg = mongoose.model("Limg", shem.Shemimg);
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 	console.log('OK COOL1');
-	Limg.find({}, function (err, clients)
+	Limg.find(function (err, clients)
 		{
-			if (err) throw err;
-			console.log(clients);
-			console.log('OK COOL');
+			res.render('clients', { clients: clients })
 		});
-  res.send('respond with a resource');
+	//res.render('clients', { title: 'Express' })
+  //res.send('respond with a resource');
 });
 
 module.exports = router;

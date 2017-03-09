@@ -4,7 +4,7 @@ var log_file = require('../log_file');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	log_file.log_file('/Users/dbourdon/nascasa/');
+	log_file.log_img('./public');
 	console.log("test")
   res.render('index', { title: 'Express' });
 });

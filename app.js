@@ -29,15 +29,13 @@ var app = express();
 */
 var db = mongoose.connect(config['link_db']);
 mongoose.connection.on("error", function() {
-	console.log("Erreur de connection - Base de donnée en cours de redémarage ... ");
-  debug.mongo_start(function()
-  	{
-  		console.log("hello world");
-  	});
+	console.log("Erreur de connection, Merci de relancer le serveur");
+	process.exit(0);
 });
 mongoose.connection.on("open", function() {
 	console.log("Ouverture de connection");
 });
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -49,6 +47,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use( express.static( "public/images/" ) );
 
 /*
 ** Définition des routes
