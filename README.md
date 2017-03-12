@@ -12,20 +12,33 @@ un seul logiciel pour le moment, serveur avec acces par navigateur
 
 # TO-Do
 
+-> : A faire
++> : fait
+
 ## Server side
 
 * coeur de la recherche d'image 
 
 	+> ajuster par rapport a public ? ou path relatif (ex `../../mesphotos`)
 
-	-> Boucle sur variable config contenant les paths autorisé
+	+> Boucle sur variable config contenant les paths autorisé
 
-	-> Route sur recherche pour lancer la recherche.
+	+> Route sur recherche pour lancer la recherche.
 
-	-> Vérification des doublons a voir si prend pas trops de ressources
+	+> Vérification des doublons a voir si prend pas trops de ressources (nop pour 100 elements, a voir avec plus)
+	
+	-> panel de choix de path a explorer
 
 * panneau de config
+
+	-> config dans la db ou en static ?
+	
 * ajout gestion d'utilisateur ? (secu des photos / en vue de l'app client side)
 
+* Gestion des catégories
+
+	-> table a part/faire des union entre table categorie-images ou tag dans l'images ?
+	
+	-> listage auto des categories dans le nav
 
 ## Client side
