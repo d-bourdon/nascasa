@@ -10,7 +10,7 @@ var Limg = mongoose.model("Limg", shem.Shemimg);
 router.get('/', function(req, res, next) {
 	Limg.find(function (err, clients)
 		{
-			res.render('clients', { clients: clients })
+			res.render('pages/client', { clients: clients })
 		});
 });
 
