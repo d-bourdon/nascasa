@@ -1,0 +1,12 @@
+<% include ../includes/header %>
+    <main>
+        <div class="row">
+        <h1>Recherche sur les dossiers : </h1>
+            <ul>
+            <% path.forEach(function(t_path) { %>
+                <li><%= t_path %></li>
+            <% }); %>
+            </ul>
+        </div>
+    </main>
+<% include ../includes/footer %>

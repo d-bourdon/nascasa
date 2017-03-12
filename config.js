@@ -12,7 +12,8 @@ config = {
 	other:			"none",
 	search_path:	[
 						"/Users/dbourdon/nascasa/public/images",
-						"/Users/dbourdon/nascasa/public/images/test"
+						"/Users/dbourdon/nascasa/public/images/test",
+						"D:\\Documents\\GitHub\\nascasa\\public\\images"
 					]
 }
 exports.config = config
