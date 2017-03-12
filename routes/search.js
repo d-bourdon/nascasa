@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 		log_file.log_img_verif(s_path);
 		callback(false);
 	});
-  res.render('search', { path: config['search_path'] });
+  res.render('pages/search', { path: config['search_path'] });
 });
 
 module.exports = router;
