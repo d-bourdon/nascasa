@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var shem = require('../model_mongo');
 
 
-var Limg = mongoose.model("Limg", shem.Shemimg);
+var Limg = mongoose.model("Limg", shem.Schemimg);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
