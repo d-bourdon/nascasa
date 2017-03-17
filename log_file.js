@@ -7,7 +7,7 @@ var dateFormat = require('dateformat');
 var now = new Date();
 var shem = require('./model_mongo')
 
-var Lfile = mongoose.model("Lfile", shem.Schemfiles);
+var Lfile = mongoose.model("Lfile", shem.Shemfiles);
 var Limg = mongoose.model("Limg", shem.Schemimg);
 
 

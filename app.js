@@ -15,6 +15,7 @@ var error_log = require("./error")
 var log_file = require("./log_file")
 var debug = require("./debug");
 var config = require("./config").config;
+var shem = require('./model_mongo');
 
 /*
 ** Include des routes
@@ -53,6 +54,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 /*
 ** Définition des routes
 */
+var Limg = mongoose.model("Limg", shem.Schemimg);
+app.use("/image/:id", function(req, res)
+{
+        console.log("Hello");
+    Limg.findById(req.param.id, function(err, image)
+    {
+      if (err)
+        console.log("error");
+      else
+        res.render('pages/image_show', {image : image});
+    });
+  res.render
+})
 app.use('/', index);
 app.use('/users', users);
 app.use('/search', search);

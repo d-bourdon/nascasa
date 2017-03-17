@@ -38,7 +38,7 @@ exports.show = function(req, res)
 	var id = req.params.image;
 	Limg.findById(id, function(err, image)
 		{
-			res.render('pages/image_show', { image : image});
+			res.render('pages/image_show', {image : image});
 		});
 };
 

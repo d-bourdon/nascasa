@@ -4,7 +4,7 @@
         <h1>This is great</h1>
             <% clients.forEach(function(client) { %>
                 <div class="col-xs-6 col-md-3">
-                    <a href="#" class="thumbnail">
+                    <a href="image/<%= client._id %>" class="thumbnail">
                         <img src="<%= client.path %>">
                     </a>
                 </div>
