@@ -55,15 +55,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 ** Définition des routes
 */
 var Limg = mongoose.model("Limg", shem.Schemimg);
-app.use("/image/:id", function(req, res)
+app.use("/image/:id?", function(req, res)
 {
-        console.log("Hello");
-    Limg.findById(req.param.id, function(err, image)
+        console.log(req.params.id);
+    Limg.findById(req.params.id, function(err, image)
     {
       if (err)
         console.log("error");
-      else
-        res.render('pages/image_show', {image : image});
+      else if (image === null)
+      {
+        res.redirect('../pages/users');
+        console.log('No results found');
+      }
+      res.render('pages/image_show', {imagev : image, tiitle : "Holla que tal"});
     });
   res.render
 })

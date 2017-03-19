@@ -46,3 +46,7 @@
 [12-03-2017][21-39-27] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir 'D:\Users\dbourdon\nascasa\public\images\test'
 [12-03-2017][21-46-51] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir 'D:\Users\dbourdon\nascasa\public\images'
 [12-03-2017][21-46-51] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir 'D:\Users\dbourdon\nascasa\public\images\test'
+[19-03-2017][19-38-55] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir 'D:\Users\dbourdon\nascasa\public\images'
+[19-03-2017][19-38-55] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir 'D:\Users\dbourdon\nascasa\public\images\test'
+[19-03-2017][20-01-58] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir 'D:\Users\dbourdon\nascasa\public\images'
+[19-03-2017][20-01-58] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir 'D:\Users\dbourdon\nascasa\public\images\test'
