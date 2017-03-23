@@ -1,8 +1,23 @@
 <% include ../includes/header %>
     <main>
         <div class="jumbotron">
-            <h1><%= imagev.nom %></h1>
-            <img src="<%= "../" + imagev.path %>" alt="<%= imagev.path %>" width="100%"/>
+            <h3><%= imagev.nom %></h3>
+            <button id="info" type="button" class="btn btn-info">Info</button>
+            <button id="redi" type="button" class="btn btn-warning">Redimentioner</button>
+            <form style="display:inline" action="/imagesd/<%= imagev.id %>" method="post">
+	            <input type="submit" class="btn btn-danger" />
+	            <input type="hidden" name="_method" value="delete" />
+            </form>
+            <button id="copy" type="button" class="btn btn-info">Copier</button>
+            <button id="edit" type="button" class="btn btn-warning">Editer</button>
         </div>
+        <img src="<%= "../" + imagev.path %>" alt="<%= imagev.path %>" width="100%"/>
     </main>
 <% include ../includes/footer %>
+
+    <script>
+        $('#info').click(function(){
+            //$.post('/test')
+            alert("HELLO WORLD !");
+        });
+    </script>

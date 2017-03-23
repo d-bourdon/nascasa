@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
 var async = require("async");
+var ressource = require('express-resource');
+var methodOverride = require('method-override');
 
 /*
 ** Script maison
@@ -39,6 +41,7 @@ mongoose.connection.on("open", function() {
 });
 
 // view engine setup
+app.use(methodOverride('_method'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -51,6 +54,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.resource("imagesd", require("./routes/images.js"));
 /*
 ** Définition des routes
 */
