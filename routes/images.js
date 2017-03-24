@@ -11,15 +11,20 @@ var Limg = mongoose.model("Limg", shem.Schemimg);
 // 			res.render('pages/client', { clients: clients })
 // 		});
 // });
-var image = [];
+var imagev = [];
 var clients = [];
 var query = [];
+var test = []
 
 exports.index = function(req, res)
 {
 	Limg.find(function (err, images)
 	{
-		res.render('pages/client', { clients: images, query: req.query });
+		var empty = 0;
+		if (images.length == 0)
+			empty = 1;
+		console.log(images.length);
+		res.render('pages/client', { clients: images, query: req.query, empty : empty });
 	});
 };
 
@@ -35,19 +40,21 @@ exports.create = function(req, res)
 
 exports.show = function(req, res)
 {
-	var id = req.params.imagesd;
+	var id = req.params.image;
 	console.dir(req.params);
 	Limg.findById(id, function(err, image)
 		{
 			if (err)
-				res.redirect('/imagesd');
+	    		console.log("error");
+	    	else if (image === null)
+	        	res.redirect('/image');
 			res.render('pages/image_show', {imagev : image});
 		});
 };
 
 exports.update = function(req, res)
 {
-	var id = req.params.imagesd;
+	var id = req.params.image;
 	Limg.findByIdAndUpdate(id, {}, function(err, image)
 	{
 		res.redirect(200, 'pages/client');
@@ -56,10 +63,10 @@ exports.update = function(req, res)
 
 exports.destroy = function(req, res)
 {
-	var id = req.params.imagesd;
+	var id = req.params.image;
 	Limg.findByIdAndRemove(id, function(err, image)
 	{
 		console.log("bye");
-		res.redirect('/imagesd?error=success&msgError=Image suprimée !');
+		res.redirect('/image?error=success&msgError=Image suprimée !');
 	});
 };

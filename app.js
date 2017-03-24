@@ -56,27 +56,27 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.resource("imagesd", require("./routes/images.js"));
+app.resource("image", require("./routes/images.js"));
 /*
 ** Définition des routes
 */
 var Limg = mongoose.model("Limg", shem.Schemimg);
-app.use("/image/:id?", function(req, res)
-{
-        console.log(req.params.id);
-    Limg.findById(req.params.id, function(err, image)
-    {
-      if (err)
-        console.log("error");
-      else if (image === null)
-      {
-        res.redirect('../pages/users');
-        console.log('No results found');
-      }
-      res.render('pages/image_show', {imagev : image, tittle : "Holla que tal"});
-    });
-  res.render
-})
+// app.use("/image/:id?", function(req, res)
+// {
+//         console.log(req.params.id);
+//     Limg.findById(req.params.id, function(err, image)
+//     {
+//       if (err)
+//         console.log("error");
+//       else if (image === null)
+//       {
+//         res.redirect('../pages/users');
+//         console.log('No results found');
+//       }
+//       res.render('pages/image_show', {imagev : image, tittle : "Holla que tal"});
+//     });
+//   res.render
+// })
 app.use('/', index);
 app.use('/users', users);
 app.use('/search', search);
