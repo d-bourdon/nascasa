@@ -41,6 +41,7 @@ mongoose.connection.on("open", function() {
 });
 
 // view engine setup
+app.use(bodyParser());
 app.use(methodOverride('_method'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -72,7 +73,7 @@ app.use("/image/:id?", function(req, res)
         res.redirect('../pages/users');
         console.log('No results found');
       }
-      res.render('pages/image_show', {imagev : image, tiitle : "Holla que tal"});
+      res.render('pages/image_show', {imagev : image, tittle : "Holla que tal"});
     });
   res.render
 })

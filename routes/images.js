@@ -2,8 +2,6 @@
 //var router = express.Router();
 var mongoose = require('mongoose');
 var shem = require('../model_mongo');
-
-
 var Limg = mongoose.model("Limg", shem.Schemimg);
 
 /* GET users listing. */
@@ -13,13 +11,15 @@ var Limg = mongoose.model("Limg", shem.Schemimg);
 // 			res.render('pages/client', { clients: clients })
 // 		});
 // });
-
+var image = [];
+var clients = [];
+var query = [];
 
 exports.index = function(req, res)
 {
 	Limg.find(function (err, images)
 	{
-		res.render('pages/client', { clients: images });
+		res.render('pages/client', { clients: images, query: req.query });
 	});
 };
 
@@ -39,6 +39,8 @@ exports.show = function(req, res)
 	console.dir(req.params);
 	Limg.findById(id, function(err, image)
 		{
+			if (err)
+				res.redirect('/imagesd');
 			res.render('pages/image_show', {imagev : image});
 		});
 };
@@ -48,7 +50,7 @@ exports.update = function(req, res)
 	var id = req.params.imagesd;
 	Limg.findByIdAndUpdate(id, {}, function(err, image)
 	{
-		res.redirect('pages/client');
+		res.redirect(200, 'pages/client');
 	});
 };
 
@@ -57,6 +59,7 @@ exports.destroy = function(req, res)
 	var id = req.params.imagesd;
 	Limg.findByIdAndRemove(id, function(err, image)
 	{
-		res.redirect('pages/client', {error : "sucess", msgError : "Image suprimée !"});
+		console.log("bye");
+		res.redirect('/imagesd?error=success&msgError=Image suprimée !');
 	});
 };

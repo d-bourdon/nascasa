@@ -1,13 +1,13 @@
 <% include ../includes/header %>
     <main>
-    <% if (this.error) { %>
-<div class="alert alert-<%= Error %> alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> <%= msgError %> </div>
+    <% if (locals.query.error) { %>
+<div class="alert alert-<%= query.error %> alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> <%= query.msgError %> </div>
         <% } %>
         <div class="row">
         <h1>This is great</h1>
             <% clients.forEach(function(client) { %>
                 <div class="col-xs-6 col-md-3">
-                    <a href="image/<%= client._id %>" class="thumbnail">
+                    <a href="../image/<%= client._id %>" class="thumbnail">
                         <img src="<%= client.path %>">
                     </a>
                 </div>
