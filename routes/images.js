@@ -44,10 +44,8 @@ exports.show = function(req, res)
 	console.dir(req.params);
 	Limg.findById(id, function(err, image)
 		{
-			if (err)
-	    		console.log("error");
-	    	else if (image === null)
-	        	res.redirect('/image');
+			if (err || image === null)
+	        	res.redirect('/image?error=warning&msgError=Image inexistant');
 			res.render('pages/image_show', {imagev : image});
 		});
 };
