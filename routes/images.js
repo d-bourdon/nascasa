@@ -16,6 +16,11 @@ var clients = [];
 var query = [];
 var test = []
 
+
+/*
+**	faire un websocket avec socket.io, envoyer les images en base64, et envoyer les 50 premières images. si il descend, on renvoie la liste un peu modifier et pareil si il remonte (comme ça le navigateur a toujours 50 images)
+** 	ou juste mettre les bases64 des 50 images et charger plus (pb de lag en cas de grosse charge ?).
+*/
 exports.index = function(req, res)
 {
 	Limg.find(function (err, images)
@@ -64,7 +69,6 @@ exports.destroy = function(req, res)
 	var id = req.params.image;
 	Limg.findByIdAndRemove(id, function(err, image)
 	{
-		console.log("bye");
 		res.redirect('/image?error=success&msgError=Image suprimée !');
 	});
 };
