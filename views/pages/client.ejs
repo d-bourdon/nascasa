@@ -7,7 +7,7 @@
             <% clients.forEach(function(client) { %>
                 <div class="col-xs-6 col-md-3">
                     <a href="image/<%= client._id %>" class="thumbnail">
-                        <img src="<%= client.path %>">
+                        <img src="data:image/png;base64,<%= client.base_f %>">
                     </a>
                 </div>
             <% }); %>

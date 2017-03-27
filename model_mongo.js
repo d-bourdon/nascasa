@@ -19,7 +19,8 @@ exports.Schemimg = mongoose.Schema({
 	type : String,
 	date_m : String,
 	date_c : String,
-	date_a : String
+	date_a : String,
+	base_f : String
 });
 
 // exports.Shemcateg_img = mongoose.Schema({

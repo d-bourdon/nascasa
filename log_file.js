@@ -6,6 +6,7 @@ var error_log = require("./error")
 var dateFormat = require('dateformat');
 var now = new Date();
 var shem = require('./model_mongo')
+var gm = require('gm').subClass({imageMagick: true});
 
 var Lfile = mongoose.model("Lfile", shem.Shemfiles);
 var Limg = mongoose.model("Limg", shem.Schemimg);
@@ -122,8 +123,15 @@ function log_img_verif(chemin)
 										error_log.error_log("Error", "log_img_verif : readdir>stat>findOne>" + err);
 									if (!obj && (ext == ".jpg" || ext == ".png" || ext == ".gif"))
 									{
-										f = new Limg({nom : elem, path : path.relative(__dirname + "/public/", path.join(chemin, elem)), patha: path.join(chemin, elem), type : ext, date_m : dateFormat(stat.mtime, "dd-mm-yyyy HH:MM:ss"), date_c : dateFormat(stat.ctime, "dd-mm-yyyy HH:MM:ss"), date_a : dateFormat(now, "dd-mm-yyyy HH:MM:ss")});
-										f.save();
+										gm(path.join(chemin, elem))
+										.resize(515, 386, '!')
+										.toBuffer('PNG',function (err, buffer) {
+											if (err)
+												return console.log(err);
+											console.log('done!');
+											f = new Limg({nom : elem, path : path.relative(__dirname + "/public/", path.join(chemin, elem)), patha: path.join(chemin, elem), type : ext, date_m : dateFormat(stat.mtime, "dd-mm-yyyy HH:MM:ss"), date_c : dateFormat(stat.ctime, "dd-mm-yyyy HH:MM:ss"), date_a : dateFormat(now, "dd-mm-yyyy HH:MM:ss"), base_f : buffer.toString('base64')});
+											f.save();
+										})
 									}
 								});
 							}
