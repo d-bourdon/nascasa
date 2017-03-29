@@ -41,4 +41,12 @@ un seul logiciel pour le moment, serveur avec acces par navigateur
 	
 	-> listage auto des categories dans le nav
 
-## Client side
+## Ressources
+
+https://rvera.github.io/image-picker/ selection d'images multiple
+
+https://kimmobrunfeldt.github.io/progressbar.js/ loading de l'exploration des fichiers
+
+http://codepen.io/collection/tIjGb/
+
+http://velocityjs.org/

@@ -6,7 +6,8 @@ var error_log = require("./error")
 var dateFormat = require('dateformat');
 var now = new Date();
 var shem = require('./model_mongo')
-var gm = require('gm').subClass({imageMagick: true});
+//var gm = require('gm').subClass({imageMagick: true});
+var sharp = require('sharp');
 
 var Lfile = mongoose.model("Lfile", shem.Shemfiles);
 var Limg = mongoose.model("Limg", shem.Schemimg);
@@ -105,6 +106,7 @@ function log_img_verif(chemin)
 				error_log.error_log("Warning", "log_img_verif : readdir>1" + err);
 			else
 			{
+				var i = 0;
 				async.each(files, function(elem, callback)
 				{
 					fs.stat(path.join(chemin, elem), function(err, stat)
@@ -114,24 +116,25 @@ function log_img_verif(chemin)
 						else
 						{
 							if (stat.isFile())
-							{
-
-								ext = path.extname(elem)
+							{	
 								Limg.findOne({patha: path.join(chemin, elem)}, function(err,obj)
 								{
 									if (err)
 										error_log.error_log("Error", "log_img_verif : readdir>stat>findOne>" + err);
+									ext = path.extname(elem);
 									if (!obj && (ext == ".jpg" || ext == ".png" || ext == ".gif"))
 									{
-										gm(path.join(chemin, elem))
+										i++;
+										console.log(i);
+										sharp(path.join(chemin, elem))
 										.resize(515, 386, '!')
-										.toBuffer('PNG',function (err, buffer) {
+										.toBuffer(function(err, buffer, info) {
 											if (err)
-												return console.log(err);
+												return console.log(path.join(chemin, elem) + " -> " + err);
 											console.log('done!');
 											f = new Limg({nom : elem, path : path.relative(__dirname + "/public/", path.join(chemin, elem)), patha: path.join(chemin, elem), type : ext, date_m : dateFormat(stat.mtime, "dd-mm-yyyy HH:MM:ss"), date_c : dateFormat(stat.ctime, "dd-mm-yyyy HH:MM:ss"), date_a : dateFormat(now, "dd-mm-yyyy HH:MM:ss"), base_f : buffer.toString('base64')});
 											f.save();
-										})
+										});
 									}
 								});
 							}
