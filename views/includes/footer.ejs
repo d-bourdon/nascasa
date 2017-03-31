@@ -4,4 +4,9 @@
     </footer>
 </div>
 </body>
+<script>
+window.addEventListener("beforeunload", function () {
+  document.getElementById("page-wrapper").classList.add("animate-out");
+});
+</script>
 </html>

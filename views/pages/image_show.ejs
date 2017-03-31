@@ -1,48 +1,71 @@
 <% include ../includes/header %>
+		<nav class="navbar navbar-default navbar-inverse" style="margin-left: -1px; border-radius : 0;">
+			<div class="container">
+				<p class="navbar-text"><%= imagev.nom %></p>
+				<ul class="nav navbar-nav navbar-right">
+				<button id="info" type="button" class="btn btn-info navbar-btn" data-toggle="modal" data-target=".modal-info">Info</button>
+				<button id="redi" type="button" class="btn btn-warning navbar-btn">Redimentioner</button>
+				<button type="button" class="btn btn-danger navbar-btn" data-toggle="modal" data-target=".modal-suppr">Supprimer</button>
+				<button id="copy" type="button" class="btn btn-info navbar-btn">Copier</button>
+				<button id="edit" type="button" class="btn btn-warning navbar-btn">Editer</button>
+				 </ul>
+			</div>
+		</nav>
     <main>
-        <div class="row jumbotron">
-        	<div class="col-md-8">
-	            <h3><%= imagev.nom %></h3>
-	            <button id="info" type="button" class="btn btn-info">Info</button>
-	            <button id="redi" type="button" class="btn btn-warning">Redimentioner</button>
-	            <form style="display:inline" action="/image/<%= imagev.id %>?_method=DELETE" method="post">
-		            <input type="submit" class="btn btn-danger" value="Supprimer"/>
-	            </form>
-	            <button id="copy" type="button" class="btn btn-info">Copier</button>
-	            <button id="edit" type="button" class="btn btn-warning">Editer</button>
-            </div>
-            <div class="col-md-4 hidden" id="info-h">
-            	<dl class="dl-horizontal">
-					<dt>Nom :</dt>
-					<dd><%= imagev.nom %></dd>
-				</dl>
-            	<dl class="dl-horizontal">
-					<dt>Date d'ajout :</dt>
-					<dd><%= imagev.date_a %></dd>
-				</dl>
-				<dl class="dl-horizontal">
-					<dt>Date de création :</dt>
-					<dd><%= imagev.date_c %></dd>
-				</dl>
-				<dl class="dl-horizontal">
-					<dt>Date de modification :</dt>
-					<dd><%= imagev.date_m %></dd>
-				</dl>
-				<dl class="dl-horizontal">
-					<dt>Type :</dt>
-					<dd><%= imagev.type %></dd>
-				</dl>
-            </div>
-        </div>
-        <img src="<%= "/" + imagev.path %>" alt="<%= imagev.path %>" width="100%"/>
+        <div class="col-md-12">
+       		<img src="<%= "/" + imagev.path %>" alt="<%= imagev.path %>" class="img-responsive"/>
+       	</div>
     </main>
 <% include ../includes/footer %>
 
-    <script>
-        $('#info').click(function(){ 
-        	if (document.getElementById("info-h").className == "col-md-4 hidden")
-        		document.getElementById("info-h").className = "col-md-4 visible";
-        	else
-        		document.getElementById("info-h").className = "col-md-4 hidden";
-        });
-    </script>
+    <!-- Suppression -->
+
+<div class="modal fade modal-suppr" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= imagev.nom %></h4>
+      </div>
+      <div class="modal-body">
+        <p>Voulez vous vraiment supprimer cette image ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+        <form style="display:inline" action="/image/<%= imagev.id %>?_method=DELETE" method="post">
+    		<button type="submit" class="btn btn-primary">Supprimer</button>
+        </form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+	<!-- Info -->
+
+<div class="modal fade modal-info" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= imagev.nom %></h4>
+      </div>
+      <div class="modal-body">
+        <dl class="dl-horizontal">
+			<dt>Nom :</dt>
+			<dd><%= imagev.nom %></dd>
+			<dt>Date d'ajout :</dt>
+			<dd><%= imagev.date_a %></dd>
+			<dt>Date de création :</dt>
+			<dd><%= imagev.date_c %></dd>
+			<dt>Date de modification :</dt>
+			<dd><%= imagev.date_m %></dd>
+			<dt>Type :</dt>
+			<dd><%= imagev.type %></dd>
+		</dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
