@@ -1,11 +1,23 @@
 <% include ../includes/header %>
+        <nav class="navbar navbar-default navbar-inverse" style="margin-left: -1px; border-radius : 0;">
+            <div class="container" style="width: 100%;">
+                <p class="navbar-text">Hello</p>
+                <ul class="nav navbar-nav navbar-right" style="padding-right: 15px;">
+                <button id="info" type="button" class="btn btn-default navbar-btn" onclick="gros()"><i class="fa fa-th-large" aria-hidden="true"></i></button>
+                <button id="info" type="button" class="btn btn-default navbar-btn" onclick="normale()"><i class="fa fa-th" aria-hidden="true"></i></button>
+                <button id="info" type="button" class="btn btn-default navbar-btn" onclick="petiticone()"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+                <button id="info" type="button" class="btn btn-default navbar-btn" onclick="trespetite()"><i class="fa fa-building" aria-hidden="true"></i></button>
+                <button id="redi" type="button" class="btn btn-warning navbar-btn">Redimentioner</button>
+                </ul>
+            </div>
+        </nav>
     <main>
     <% if (locals.query && locals.query.error) { %>
 <div class="alert alert-<%= query.error %> alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> <%= query.msgError %> </div>
         <% } %>
         <div class="row" style="margin-right: 0; margin-left: 0;">
             <% clients.forEach(function(client) { %>
-                <div class="col-xs-6 col-md-3">
+                <div id="test" class="col-xs-6 col-md-3">
                     <a href="image/<%= client._id %>" class="thumbnail">
                         <img src="data:image/png;base64,<%= client.base_f %>">
                     </a>
@@ -17,3 +29,34 @@
         </div>
     </main>
 <% include ../includes/footer %>
+<script>
+
+function trespetite() {
+     var choix = document.getElementsByClassName('col-xs-6');
+    for (i=0;i<choix.length;i++)
+    {
+        choix[i].className = 'col-xs-6 col-md-1';
+    }
+};
+function petiticone() {
+     var choix = document.getElementsByClassName('col-xs-6');
+    for (i=0;i<choix.length;i++)
+    {
+        choix[i].className = 'col-xs-6 col-md-2';
+    }
+};
+function normale() {
+     var choix = document.getElementsByClassName('col-xs-6');
+    for (i=0;i<choix.length;i++)
+    {
+        choix[i].className = 'col-xs-6 col-md-3';
+    }
+};
+function gros() {
+     var choix = document.getElementsByClassName('col-xs-6');
+    for (i=0;i<choix.length;i++)
+    {
+        choix[i].className = 'col-xs-6 col-md-4';
+    }
+};
+</script>

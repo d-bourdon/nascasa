@@ -98,3 +98,5 @@
 [29-03-2017][16-48-08] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir 'D:\Documents\GitHub\nascasa\public\images'
 [29-03-2017][16-54-29] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir '/Users/dbourdon/nascasa/public/images/test'
 [29-03-2017][16-54-29] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir 'D:\Documents\GitHub\nascasa\public\images'
+[02-04-2017][15-54-37] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir 'D:\Documents\GitHub\nascasa\public\images'
+[02-04-2017][15-54-37] Warning =>>log_img_verif : readdir>1Error: ENOENT: no such file or directory, scandir '/Users/dbourdon/nascasa/public/images/test'
