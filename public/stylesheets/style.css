@@ -31,6 +31,10 @@ a {
 ** ********************
 */
 
+.animate-re {
+    -webkit-animation: fadeOut 1s linear;
+    animation: fadeOut 1s linear;
+}
 .animate-in {
     -webkit-animation: fadeIn .5s ease-in;
     animation: fadeIn .5s ease-in;
@@ -46,6 +50,17 @@ a {
 }
 @keyframes fadeIn {
     from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-webkit-keyframes fadeOut {
+    from { opacity: 1; }
+    50% { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    50% { opacity: 0; }
     to { opacity: 1; }
 }
 
