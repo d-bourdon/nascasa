@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 /*
 ** Stucture Simple
 */
-exports.Shemfiles = mongoose.Schema({
+exports.Shemfiles = Schema({
 	nom : String,
 	path : String,
 	dir : String
@@ -12,7 +13,7 @@ exports.Shemfiles = mongoose.Schema({
 /*
 ** Structure pour images
 */
-exports.Schemimg = mongoose.Schema({
+exports.Schemimg = Schema({
 	nom : String,
 	path : String,
 	patha : String,
@@ -23,13 +24,13 @@ exports.Schemimg = mongoose.Schema({
 	base_f : String
 });
 
-// exports.Shemcateg_img = mongoose.Schema({
-//  	nom : String,
-//  	date: { type: Date, default: Date.now },
-//  	image : [Schemimg]
-//  });
+exports.Shemcateg_img = Schema({
+ 	nom : String,
+ 	date: { type: Date, default: Date.now },
+ 	image : [{ type: Schema.Types.ObjectId, ref: 'Image' }]
+ });
 
-exports.Shemcateg = mongoose.Schema({
+exports.Shemcateg = Schema({
 	nom : String,
 	date: { type: Date, default: Date.now }
 });
@@ -37,7 +38,7 @@ exports.Shemcateg = mongoose.Schema({
 /*
 ** Structure pour config
 */
-exports.Schemconfig = mongoose.Schema({
+exports.Schemconfig = Schema({
 	cle : String,
 	valeur : String
 });
