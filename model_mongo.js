@@ -23,11 +23,11 @@ exports.Schemimg = mongoose.Schema({
 	base_f : String
 });
 
-exports.Shemcateg_img = mongoose.Schema({
- 	nom : String,
- 	date: { type: Date, default: Date.now },
- 	image : [Schemimg]
- });
+// exports.Shemcateg_img = mongoose.Schema({
+//  	nom : String,
+//  	date: { type: Date, default: Date.now },
+//  	image : [Schemimg]
+//  });
 
 exports.Shemcateg = mongoose.Schema({
 	nom : String,
