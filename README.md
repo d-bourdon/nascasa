@@ -1,6 +1,14 @@
 # nascasa
 
-un seul logiciel pour le moment, serveur avec acces par navigateur
+Webapp de gestion de photos pour nas / serveur en locale (fonctione en non locale mais déconceillé pour le moment)
+
+## Dépendance
+
+Le but est d'avoir le minimum de dépendance logiciel et cross-plateform .
+
+Avec Docker | Sans Docker
+------------ | ------------
+docker, (fichier run-me.sh) | python 3 pour avoir pyp -> lib graphique
 
 ### direction
 
@@ -28,6 +36,7 @@ un seul logiciel pour le moment, serveur avec acces par navigateur
 	+> Vérification des doublons a voir si prend pas trops de ressources (nop pour 100 elements, a voir avec plus)
 	
 	-> panel de choix de path a explorer
+	-> gestion des espace dans les noms de fichier cassé depuis le passage docker
 
 * panneau de config
 

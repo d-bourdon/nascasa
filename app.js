@@ -34,7 +34,7 @@ var app = express();
 var db = mongoose.connect(config['link_db']);
 mongoose.connection.on("error", function() {
 	console.log("Erreur de connection, Merci de relancer le serveur");
-	process.exit(0);
+	process.exit(1);
 });
 mongoose.connection.on("open", function() {
 	console.log("Ouverture de connection");
